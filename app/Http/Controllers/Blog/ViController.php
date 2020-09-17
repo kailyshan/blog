@@ -7,6 +7,7 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +32,14 @@ class ViController extends Controller {
 	 * @return \Illuminate\Http\JsonResponse
 	 */
 	public function detail(){
-	    $article = DB::select("select * from article  order by id desc limit 1")[0];
+
+        $article = Article::query()->first();
+
+
+	    if(!$article){
+            $article = new Article();
+            $article->pic = 'http://www.kemanmeiye.com/ueditor/uploadiImages/image/20200821/1597988065997895.jpg';
+        }
 
 
         return view('blog', [
