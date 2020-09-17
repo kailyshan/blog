@@ -33,12 +33,14 @@ class ViController extends Controller {
 	 */
 	public function detail(){
 
-        $article = Article::query()->first();
+        $article = Article::query()->orderBy('id','desc')->first();
 
 
 	    if(!$article){
             $article = new Article();
             $article->pic = 'http://www.kemanmeiye.com/ueditor/uploadiImages/image/20200821/1597988065997895.jpg';
+        }else{
+            $article->pic = 'https://sqy808.cn'.$article->pic;
         }
 
 
