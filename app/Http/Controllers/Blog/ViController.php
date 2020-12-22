@@ -58,7 +58,7 @@ class ViController extends Controller {
 
 
         if(!is_uploaded_file($_FILES['upfile']['tmp_name'])){
-            echo "<script>alert('请上传一个有效文件');location.href='detail';</script>";
+            echo "<script>alert('请上传一个有效文件a');location.href='detail';</script>";
             exit(0);
         }
 //2、判断文件格式
